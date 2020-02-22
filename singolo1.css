@@ -131,3 +131,12 @@ nav a:hover{
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
 }
+
+.services .container{
+    
+    width: 940px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
