@@ -32,6 +32,58 @@ body {
     padding-top:  50px;
     padding-bottom: 55px;
 }
+
+h2{
+    position: relative;
+    top: 11px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+p{
+    position: relative;
+    top: 33px;
+    font-size: 18px;
+}
+
+.portfolio ul{
+    position: relative;
+    top: 48px;
+    display: flex;
+    flex-direction: row;
+}
+
+.portfolio li{
+    margin-right: 10px;
+    padding: 6px;
+    height: 8px;
+    border: 1px solid #666d89;
+    border-radius: 4px;
+    vertical-align: middle;
+    line-height: 8px;
+    list-style-type: none;
+    color: #666d89;
+    font-size: 12px;
+    font-weight: 400;
+    transition: all 0.5s ease;
+}
+
+.portfolio li:hover{
+    color: #c5c5c5;
+    border-color: #c5c5c5; 
+    cursor: pointer;
+}
+
+.images {
+    position: relative;
+    top: 66px;
+    display: grid;
+    grid-template: repeat(3, 187px) / repeat(4, 220px);
+    grid-gap: 20px;
+}
+
+
+
 .about-us{
     background-color: #f2f2f2;
     height: calc(728px);
@@ -44,4 +96,56 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.people{
+    display: grid;
+    grid-gap: 20px;
+    grid-template: 443px / repeat(3, 300px);
+}
+
+.people > div{
+    display: grid;
+    grid-template: 300px 20px 46px 32px/ 300px;
+    grid-gap: 15px;
+}
+
+.about-us h2{
+    position: relative;
+    top: 19px;
+}
+
+.about-us p{
+    position: relative;
+    top: -18px;
+    line-height: 30px;
+    letter-spacing: -0.05px;
+}
+
+.about-us .people{
+    position: relative;
+    top: -27px;
+}
+
+.people > div > h3{
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+}
+
+.people > div > p{
+    position: relative;
+    top: -4px;
+    font-size: 12px;
+    letter-spacing: -0.1px;
+    line-height: 20px;
+}
+
+.people > div  img{
+    padding-right: 5px;
+}
+
+.links  img:hover{
+    position: relative;
+    top: 5px;
+    cursor: pointer;
 }
