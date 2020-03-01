@@ -7,6 +7,8 @@ body {
     font-family: 'Lato', sans-serif;
     width: 100%;
     color: #666d89;
+    max-width: 1020px;
+    margin: 0 auto;
 }
 
 .container {
@@ -82,6 +84,15 @@ p{
     display: grid;
     grid-template: repeat(3, 187px) / repeat(4, 220px);
     grid-gap: 20px;
+}
+
+.img-for-portfolio {
+    width: 220px;
+    height: 187px;
+}
+
+.portfolio .img-for-portfolio:nth-child(n+13){
+    display: none;
 }
 
 .about-us{
