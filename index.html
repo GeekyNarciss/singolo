@@ -7,11 +7,10 @@
     <title>SINGOLO</title>
 </head>
 <body>
-    <div id="home"></div>
-    <header>
+    <header id="home">
         <div class="container1">
             <h1>SINGOLO<span>*</span></h1>
-            <nav id="Header">
+            <nav class="menu" id="Header">
                 <a href="#home">HOME</a>
                 <spnan>·</spnan>
                 <a href="#services">SERVICES</a>
@@ -26,7 +25,7 @@
     </header>
         <div class="slider"> 
             <div class="container1">
-                <div class="chevs" onclick="click_on_chev()">
+                <div class="chevs" onclick="clickOnChev()">
                     <svg class="chev chev-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="27" viewBox="0 0 16 27">
                         <image id="chev" width="16" height="27" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAbCAYAAAB1NA+iAAABg0lEQVQ4jZXVv0tXURzG8Zc/NrMtoyEatP4EW5oEiUiKECUMGipxLytqb+jXYENLQWiJEgoKNThEY2CDQwkGRWtSBEVEVEOcODe+XM4539sDd7j3uZ83z+eccz+3Y334iIbqxBWM4ifuh6u7aTUe4HTL/UF86mxYfKtWXOl4E8B1XMh4W+0A13Ap473AvRLgPK5mvE2cwOccIES+nfHehN6xLW5NXefioqW0hRG8q7w64BTuZoo/YAxvWx+2noOTmEVXojjEPYbXdaNKcDierFLxy1SsABjCY/Qk/G+xrfVMW38BM9iZ8D7Gtp7liivAQMabx9NScQV4lfEmY4K2gKm4RXX1xIU92g6wgQl8zUAWSpBqG59jPAPpxSIOlQBBa3HLfiXe24ElDJYAQU9wJgPZjZU6JPUxPcJZ/E54e2KS/SVA0MPCFNobkw6UAEF3MJ3xDmAVfV2T/f/SpBTG1ncMJ8xd+NJkqN7EjYy3r+lYv5yZUsv/82O5iPdxHv7AHNb+ALewRq334YEJAAAAAElFTkSuQmCC"/>
                     </svg>
@@ -49,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="chevs" onclick="click_on_chev()">
+                <div class="chevs" onclick="clickOnChev()">
                     <svg class="chev chev-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="27" viewBox="0 0 16 27">
                         <image id="chev" width="16" height="27" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAbCAYAAAB1NA+iAAABg0lEQVQ4jY3VT4hOURjH8Q9mpEaWZCGbYWFnY2WlJI2YqSFRlD/ZG1H2kpmxYDGbsdGMZpooisUsJks1FhYoij0pC82OpEfnrbe3+5x7f3U353d+33vOee59zqb1o8fhSnm24hnu4q8OGsI45vumHsR+XOwC2IxTDeMXMNsV8CnxpnCvCyCW/ybxb+JOG+AnJvAxmXMb12uA0PdyFp+TeffLllJA6CtOVM5ktpQ6BYS+4DS+JZA5nK8BQh9wsmxrUMN4jLM1QOhtBbIFj3CsBgitl+VuNHgjWMGRGiC0Vpb7o8HbgQdtgNArPEm80S6AWMHVxHvfBhgrBzbS4EWpr9UAEV5Kwr9wDu+GkvBhLGN7Ej6D15IyHsLTJPy7lHa1NzAIiPBz7ErCl/Cyf7AfsK+8eXdD+A8uY3HQ6AFGC3lPQ1j5lReajADsxIvSSJt0Aw8T7z8gPpIDiR8tLZpJqgDsTdxpzNTCPUBcJIOK7nOrLRyKDylqOlnugm3lPKLztAv/AAFNQs/joGZ7AAAAAElFTkSuQmCC"/>
                     </svg>
@@ -168,15 +167,23 @@
         <div id="get-a-quote" class="anchors"></div>
         <div class="get-a-quote">
             <div class="wrapper2">
+                <div class="modal-overlay" hidden="true">
+                    <div class="modal">
+                        <p>Письмо отправлено </p>
+                        <p></p>
+                        <p></p>
+                        <button type="button" id="ok-btn" class="submitbtn" value="submit" name="ok" >OK</button>             
+                    </div>
+                </div> 
                 <h2 class="font3">Get a Quote</h2> 
                 <p class="font3">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
                 <div class="grid-for-form-and-aside">
-                    <form>
-                        <input type="text" name="name" placeholder="Name(Required)" required>
-                        <input type="email" name="email" placeholder="Email(Required)" required>
-                        <input type="text" name="subject" placeholder="Subject">
-                        <textarea name="discribe" placeholder="Describe your project in detail..."></textarea>
-                        <button type="submit">Submit</button>
+                    <form class="form" id="form-elem">
+                        <input id="input-name" class="input-name" type="text" name="name" placeholder="Name(Required)" required>
+                        <input id="input-email" class="input-email" type="email" name="email" placeholder="Email(Required)" required>
+                        <input class="input-subject" type="text" name="subject" placeholder="Subject" id="input-subject">
+                        <textarea class="input-desc" name="discribe" placeholder="Describe your project in detail..." id="input-desc"></textarea>
+                        <button class="submit-btn"type="submit" id="form-btn">Submit</button>
                     </form>
                     <aside>
                         <h4  class="font3">Contact Information</h4>
@@ -193,11 +200,11 @@
         <footer>
             <div class="wrapper2">
                 <span class="copyright">&copy; Copyright 2013</span>
-                <div class="social-media">
-                    <img src="assets/facebook.svg" alt="facebook">
-                    <img src="assets/google.svg" alt="google">
-                    <img src="assets/twitter.svg" alt="twitter">
-                    <img src="assets/linkedin.svg" alt="linked-in">
+                <div class="links">
+                    <a href="https://www.facebook.com"><img src="assets/facebook.svg" alt="facebook"></a>
+                    <a href="https://www.google.com"><img src="assets/google.svg" alt="google+"></a>
+                    <a href="https://www.twitter.com"><img src="assets/twitter.svg" alt="twitter"></a>
+                    <a href="https://www.linkedin.com"><img src="assets/linkedin.svg" alt="linked-in"></a>
                 </div>
             </div>
         </footer>
