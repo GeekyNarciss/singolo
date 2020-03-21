@@ -1,4 +1,7 @@
 //header
+window.addEventListener('scroll', onScroll);
+window.onload = onScroll;
+
 function changeHeaderColor(item) {
     anchors.forEach(item => item.style.color = '#fff');
     item.style.color = '#f06c64';
@@ -23,10 +26,30 @@ function changeHeaderColor(item) {
     }
     changeHeaderColor(item);
   }
+
+  function onScroll(){
+    let currentPosition = window.scrollY;
+    let header_size = document.querySelector('header').offsetHeight;
+    let divs = document.querySelectorAll('body>div');
+    let navigation = document.querySelectorAll('#header-n>a');
+
+    divs.forEach((el)=>{
+        if(el.offsetTop - header_size  <= currentPosition && (el.offsetTop + el.offsetHeight) > currentPosition){
+            navigation.forEach((a)=>{
+                a.classList.remove('active_nav');
+                if(a.getAttribute('href').substring(1) === el.getAttribute('id')){
+                    a.classList.add('active_nav');   
+}
+            })
+        }
+    });
+
+}
   
   let anchors = document.querySelectorAll('nav > a');
   anchors[0].style.color = '#f06c64';
   anchors.forEach((item, index) => item.addEventListener('click', () => scrollToAnchor(item, index)));
+
 
 
 //slider
