@@ -48,7 +48,7 @@ document.querySelector("body > header > div.menu-bg").addEventListener('click', 
 //slider
 function clickOnChev(){
     if(slider_1){
-        iphones.style = 'background: url(assets/slider-2.png);height: 513px;'
+        iphones.style = 'background: url(assets/slider-2.png);height: 513px;;background-repeat: no-repeat;'
         iphone.forEach(elem => elem.style = 'display: none');
         slider.style = 'background-color: #648bf0; border-bottom: 6px solid #74b9ff';
         slider_1 = false
