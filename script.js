@@ -2,39 +2,14 @@
 window.addEventListener('scroll', onScroll);
 window.onload = onScroll;
 
-function changeHeaderColor(item) {
-    anchors.forEach(item => item.style.color = '#fff');
-    item.style.color = '#f06c64';
-  }
-  
-  function scrollToAnchor(item, index) {
-    const HEADER_HEIGHT = 40;
-    if (index == 0) {
-      window.scrollTo(0, 0);
-    } 
-    else if (index == 1) {
-      window.scrollTo(0, 600);
-    } 
-    else if (index == 2) {
-      window.scrollTo(0, 1100);
-    }
-    else if (index == 3) {
-      window.scrollTo(0, 1967);
-    }
-    else if (index == 4) {
-      window.scrollTo(0, 2703);
-    }
-    changeHeaderColor(item);
-  }
-
-  function onScroll(){
+function onScroll(){
     let currentPosition = window.scrollY;
-    let header_size = document.querySelector('header').offsetHeight;
+    let heder_size = document.querySelector('header').offsetHeight;
     let divs = document.querySelectorAll('body>div');
     let navigation = document.querySelectorAll('#header-n>a');
 
     divs.forEach((el)=>{
-        if(el.offsetTop - header_size  <= currentPosition && (el.offsetTop + el.offsetHeight) > currentPosition){
+        if(el.offsetTop - heder_size  <= currentPosition && (el.offsetTop + el.offsetHeight) > currentPosition){
             navigation.forEach((a)=>{
                 a.classList.remove('active_nav');
                 if(a.getAttribute('href').substring(1) === el.getAttribute('id')){
@@ -45,11 +20,29 @@ function changeHeaderColor(item) {
     });
 
 }
-  
-  let anchors = document.querySelectorAll('nav > a');
-  anchors[0].style.color = '#f06c64';
-  anchors.forEach((item, index) => item.addEventListener('click', () => scrollToAnchor(item, index)));
 
+let bg_menu_open = false;
+let bg_botton = document.querySelector("body > header > div.container > div")
+let bg_menu = document.querySelector("body > header > div.menu-bg")
+
+bg_botton.addEventListener('click', (event)=>{
+    if(bg_menu_open){
+        bg_botton.classList.remove('burger-button-open');
+        bg_menu.classList.remove('menu-bg-open');
+    }else{
+        bg_botton.classList.add('burger-button-open');
+        bg_menu.classList.add('menu-bg-open');
+    }
+    bg_menu_open = !bg_menu_open;
+});
+
+document.querySelector("body > header > div.menu-bg").addEventListener('click', (event) => {
+    if(bg_menu_open){
+        bg_botton.classList.remove('burger-button-open');
+        bg_menu.classList.remove('menu-bg-open');
+        bg_menu_open = !bg_menu_open;
+    }
+});
 
 
 //slider

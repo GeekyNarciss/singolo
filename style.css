@@ -6,21 +6,121 @@
 }
 
 body{
-    font-family: 'Lato', sans-serif;
-    
+    font-family: 'Lato', sans-serif;    
+    color: #666d89;
+    overflow-x:hidden; 
 }
 
-.container1{
+header .container{
     width: 100%;
     max-width: 1020px;
     margin: 0 auto;
 }
 
+.burger-button{
+    display: none;
+    position: fixed;
+    top: 26px;
+    left: 20px;
+    z-index: 22;
+    width: 25px;
+    height: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.3s, top 0.3s;
+}
+
+.burger-button div{
+    background-color: #fff;
+    height: 2px;
+}
+
+
+.burger-button-open{
+    transform: rotate(-90deg);
+}
+
+.menu-bg{
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    height: 100vh;
+    width: 100vw;
+    z-index: 11;
+    transition: left 0.3s, top 0.3s;    
+}
+
+.menu-bg-open{
+    left:0;
+}
+
+.menu-bg .content{
+    background-color: #2D303A;
+    width: 210px;
+    height: 100vh; 
+    padding: 35px 30px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 94px 1px rgba(45,48,58,1);
+}
+
+.menu-bg .content a{
+   margin: 0px;
+}
+
+.menu-bg .content .burger-button{
+    position: absolute;
+    top: 45px;
+    left: 30px;
+    transform: rotate(90deg)
+}
+
+.menu-bg .content > span{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-bg .content p{
+    position: absolute;
+    top: 25px;
+    left: 70px;
+    color: #ffffff;
+    font-family: "Lato";
+    font-size: 20px;
+    letter-spacing: 0.1px;
+    text-align: justify;
+}
+
+.menu-bg .content span{
+    color:#f06c64;   
+}
+
+.menu-bg .content #header-n{
+    position: absolute;
+    left: 70px;
+    top: 230px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.menu-bg a{
+    font-size: 24px;   
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 40px;
+    width: calc(1020px - 80px);
+    max-width: 1020px;
+    height: 100%;
+}
+
 .anchors{
-    position: relative;
-    top: -95px;
-    height: 0px;
-    visibility: hidden;
+    scroll-margin-top: 95px;
 }
 
 header{
@@ -33,7 +133,7 @@ header{
     z-index: 10;
 }
 
-header .container1{
+header .container{
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -73,9 +173,8 @@ nav a{
     text-decoration: none;
     color: #ffffff;
     text-align: justify;
+    transition: all 0.3s ease;
 }
-
-
 
 nav a:hover{
     color:#f06c64;
@@ -86,9 +185,11 @@ nav a:hover{
     height: 594px;
     background-color: #f06c64;  
     border-bottom: 6px solid #ea676b;
+    transition-property: background-color, border-bottom;
+    transition-duration: 1s;
 }
 
-.slider .container1{
+.slider .container{
     height: 100%;
     width: 940px;
     padding: 0 40px;
@@ -204,6 +305,7 @@ nav a:hover{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
+    cursor: pointer;
 }
 
 .iphone:nth-child(2) .iphone-case{
@@ -236,13 +338,13 @@ nav a:hover{
 }
 
 .services{
-    height: 496px;
+    height: 494px;
     width: 100%;
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
 }
 
-.services .container1{
+.services .container{
     height: calc(100% - 80px);
     width: 940px;
     padding: 40px;
@@ -251,7 +353,7 @@ nav a:hover{
     justify-content: space-around;
 }
 
-h2{
+.services h2{
     position: relative;
     top: 3px;
     font-size: 30px;
@@ -260,7 +362,7 @@ h2{
     letter-spacing: -0.2px;
 }
 
-h4{
+.services h4{
     position: relative;
     top: -10px;
     letter-spacing: 0.36px;
@@ -270,7 +372,7 @@ h4{
     font-weight: 400;
 }
 
-.wrapper1{
+.services .wrapper{
     position: relative;
     top: 3px;
     padding: 0px;
@@ -280,13 +382,13 @@ h4{
     grid-row-gap: 22px;
 }
 
-.block{
+.services .block{
     display: grid;
     grid-template: 20px 70px / 70px 220px;
     grid-gap: 10px;
 }
 
-.block h3{
+.services .block h3{
     position: relative;
     top: -3px;
     color: #666d89;
@@ -296,7 +398,7 @@ h4{
     grid-row: 1 / 2;
 }
 
-.block h5{
+.services .block h5{
     position: relative;
     top: -2px;
     grid-column: 2 / 3;
@@ -311,62 +413,54 @@ h4{
     overflow: hidden;
 }
 
-.block .image{
+.services .block .image{
     grid-column: 1 / 2;
     grid-row: 1 / 3; 
 }
 
-.block:nth-child(1) .image{
+.services .block:nth-child(1) .image{
     background-image: url(./assets/pen.png);
     background-repeat: no-repeat;
 }
 
-.block:nth-child(2) .image{
+.services .block:nth-child(2) .image{
     background-image: url(./assets/lightbulb.png);
     background-repeat: no-repeat;
 }
 
-.block:nth-child(3) .image{
+.services .block:nth-child(3) .image{
     background-image: url(./assets/heart.png);
     background-repeat: no-repeat;
 }
 
-.block:nth-child(4) .image{
+.services .block:nth-child(4) .image{
     background-image: url(./assets/phone.png);
     background-repeat: no-repeat;
 }
-.block:nth-child(5) .image{
+.services .block:nth-child(5) .image{
     background-image: url(./assets/bubble.png);
     background-repeat: no-repeat;
 }
 
-.block:nth-child(6) .image{
+.services .block:nth-child(6) .image{
     background-image: url(./assets/Star.png);
     background-repeat: no-repeat;
 }
 
 
+/**/
 
 
-
-
-
-.container2 {
-    margin: 0 auto;
-    padding: 0 40px;
-    width: calc(1020px - 80px);
-    max-width: 1020px;
-    height: 100%;
-}
-
-.portfolio {
+.portfolio{
+    color: #666d89;
     width: 100%;
-    height: calc(864px);
+    height: calc(863px);
     background-color: #2d303a;
     border-bottom: #323746 solid 6px;
 }
 
-.portfolio .container2{
+.portfolio .container{
+    top:-1px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -380,10 +474,6 @@ h2{
     letter-spacing: -0.15px;
     font-size: 30px;
     font-weight: 800;
-}
-
-.font2 {
-    color: #666d89;
 }
 
 p{
@@ -413,6 +503,7 @@ p{
     color: #666d89;
     font-size: 12px;
     font-weight: 400;
+    white-space: nowrap;
     transition: all 0.5s ease;
 }
 
@@ -428,7 +519,7 @@ p{
     cursor: pointer;
 }
 
-.images {
+.images{
     position: relative;
     top: 66px;
     display: grid;
@@ -436,10 +527,9 @@ p{
     grid-gap: 20px;
 }
 
-.img-for-portfolio {
+.img-for-portfolio{
     position: relative;
-    width: 220px;
-    height: 187px;
+    width: 100%;
     border: 0px solid #f06c64;
 }
 
@@ -451,9 +541,10 @@ p{
     background-color: #f2f2f2;
     height: calc(728px);
     border-bottom: #ffffff solid 6px;
+    color: #666d89;
 }
 
-.about-us .container2{
+.about-us .container{
     height: calc(100% - 80px);
     padding: 40px;
     display: flex;
@@ -468,9 +559,15 @@ p{
 }
 
 .people > div{
-    display: grid;
-    grid-template: 300px 20px 46px 32px/ 300px;
-    grid-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 3px;
+}
+
+.people .second img {
+    position: relative;
+    left: -1px;
 }
 
 .about-us h2{
@@ -488,9 +585,21 @@ p{
 .about-us .people{
     position: relative;
     top: -27px;
+    left: -3px;
+}
+
+.font3{
+    color:  #f0d8d9
+}
+
+.people .links{
+    position: relative;
+    top: 4px;
 }
 
 .people > div > h3{
+    margin-top: 15px;
+    margin-bottom: 15px;
     letter-spacing: -0.4px;
     white-space: nowrap;
     overflow: hidden;
@@ -499,14 +608,13 @@ p{
 
 .people > div > p{
     position: relative;
-    top: -4px;
+    height: 60px;
+    top: 0px;
     font-size: 12px;
     line-height: 20px;
     letter-spacing: -0.05px;
     text-align: justify; 
 }
-
-
 
 .links img{
     position: relative;
@@ -528,12 +636,10 @@ p{
 }
 
 
+/**/
 
 
-
-
-
-.wrapper2{
+.wrapper{
     margin: 0 auto;
     width: 940px;
     padding: 0 40px;
@@ -545,7 +651,7 @@ p{
     border-bottom: 6px solid #ea676b;
 }
 
-.get-a-quote .wrapper2{
+.get-a-quote .wrapper{
     padding: 60px 0;
     height: calc(100% - 90px);
     display: flex;
@@ -561,7 +667,7 @@ p{
     grid-gap: 20px;
 }
 
-.get-a-quote h2 {
+.get-a-quote h2{
     position: relative;
     top: -1px;
     font-size: 30px;
@@ -572,6 +678,7 @@ p{
 .get-a-quote p{
     position: relative;
     top: -15px;
+    width: 100%;
     line-height: 30px;
     font-size: 18px;
     font-weight: 300;
@@ -753,7 +860,7 @@ footer{
     background-color: #2d303a;
 }
 
-footer .wrapper2{
+footer .wrapper{
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -787,6 +894,360 @@ footer img:hover{
     cursor: pointer;
 }
 
-.font3{
-    color:  #f0d8d9
+
+/**/
+
+
+.active_nav{
+    color:#f06c64;
+}
+
+
+
+@media (max-width: 1019px){
+    
+    .slider .container{
+        width: calc(100vw);
+        padding: 0;
+    }
+
+    .slider{
+        height: auto;
+    }
+
+    .iphones{
+        width: 600px;
+        max-width: 600px;
+        padding: 30px 0;
+        align-items: center;
+    }
+
+    .iphone{
+        width: 180px;
+        height: 364px;
+    }
+    
+    .iphone-shadow{
+        width: 180px;
+        height: 364px;
+        top: 0;
+        left: 0;
+        background-size: cover;
+    }
+
+    .iphone-case{
+        position: absolute;
+        width: 162px;
+        height: 344px;
+        top: 19px;
+        left: -1px;
+    }
+
+    .chevs:nth-child(1) {
+        left: -10px;
+    }
+
+    .chevs:nth-child(3) {
+        position: relative;
+        left: 10px;
+    }
+    
+    .iphone:nth-child(1) {
+        width: 180px;
+        height: 364px;
+        top: 0;
+        left: 0;
+    }
+
+    .iphone:nth-child(2) {
+        width: 180px;
+        height: 364px;
+        top: 0px;
+        left: 146px;
+    }
+
+    .iphone:nth-child(2) .iphone-case {
+        transform: scale(1, -1);
+        background-position: top;
+        position: relative;
+        top: 18px;
+        left: -1px;
+    }
+
+    .iphone:nth-child(2) .iphone-screen{
+        background-image: url(assets/screen-h.png);
+        transform: scale(1, -1);
+        top: 45px;
+        left: 8px;
+    }
+
+    .iphone-screen{
+        width: 144px;
+        height: 251px;
+        top: 45px;
+        left: 9px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .container{
+        width: calc(100% - 80px)
+    }
+
+    .services{
+        height: 651px;
+    }
+
+    .services .container{
+        width: calc(100% - 80px);
+    }
+
+    .services .wrapper{
+        grid-template: repeat(3, 104px) / repeat(2, 1fr);
+        grid-gap: 35px;
+        width: 100%;
+    }
+
+    .portfolio{
+        height: auto;
+    }
+
+    .images {
+        grid-template: repeat(4, 1fr)/ repeat(3, 1fr);
+        padding-bottom: 40px;
+    }
+
+    .people{
+        grid-template: 443px / repeat(3, 1fr);
+        grid-gap: 14.6px;
+    }
+
+    .people > div > img{
+        width: 100%;
+    }
+
+    .people > div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .get-a-quote .wrapper{
+        width: calc(100% - 80px);
+        
+    }
+
+    .get-a-quote .grid-for-form-and-aside{
+        grid-template:  1fr / 2fr 1fr;
+    }
+
+    footer .wrapper{
+        width: calc(100% - 80px);
+    }
+}
+
+
+@media (max-width: 767px){
+
+    .anchors{
+        scroll-margin-top: 71px;
+    }
+
+    .burger-button{
+        display: flex;
+    }
+    
+    header{
+        height: 71px;
+        border-bottom: none;
+    }
+
+    .iphones{
+        width: 477px;
+        max-width: 280px;
+        height: 178px;
+        align-items: center;
+    }
+
+    .iphone{
+        width: 88px;
+        height: 178px;
+    }
+    
+    .iphone-shadow{
+        width: 88px;
+        height: 178px;
+        top: 0;
+        left: 0;
+        background-size: cover;
+    }
+
+    .iphone-case{
+        position: absolute;
+        width: 79px;
+        height: 168px;
+        top: 19px;
+        left: -1px;
+    }
+
+    .chevs:nth-child(1) {
+        left: -30px;
+    }
+
+    .chevs:nth-child(3) {
+        position: relative;
+        left: 10px;
+    }
+
+    .chev-right {
+        position: relative;
+        top: 84px;
+        left: 0px;
+    }
+    
+    .iphone:nth-child(1) {
+        width: 88px;
+        height: 178px;
+        top: 0;
+        left: 1px;
+    }
+
+    .iphone:nth-child(2) {
+        width: 88px;
+        height: 178px;
+        top: 0px;
+        left: 57px;
+    }
+
+    .iphone:nth-child(2) .iphone-case {
+        transform: scale(1, -1);
+        background-position: top;
+        position: relative;
+        top: 18px;
+        left: -1px;
+    }
+
+    .iphone-screen{
+        width: 69px;
+        height: 122px;
+        top: 22px;
+        left: 5px;
+    }
+
+    .iphone:nth-child(2) .iphone-screen{
+        background-image: url(assets/screen-h.png);
+        transform: scale(1, -1);
+        top: 21px;
+        left: 4px;
+    }
+
+    .services .block{
+        margin: auto;
+    }
+
+    .container{
+        width: calc(100% - 60px);
+        padding: 0 30px;
+    }
+
+    header .container{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    header nav{
+        display: none;
+    }
+
+    header h1{
+        position: static;
+        margin: auto;
+        padding: 0;
+    }
+
+    .services .container {
+        width: calc(100% - 60px);
+        padding: 40px 30px;
+        margin: 0;
+    }
+
+    .services .wrapper{
+        grid-template: repeat(6, 104px) / 1fr;
+        grid-gap: 10px;
+    }
+    
+    h4{
+        margin: 20px 0;
+    }
+
+    .services{
+        height: auto;
+    }
+
+    .images {
+        grid-template: repeat(4, 1fr)/ repeat(2, 1fr);
+        grid-gap: 13px;
+    }
+
+    .portfolio .img-for-portfolio:nth-child(n+9){
+        display: none;
+    }
+
+    .people{
+        grid-template: repeat(3, 1fr) / 1fr;
+    }
+
+    .about-us{
+        height: auto;
+    }
+
+    .about-us .container {
+        height: calc(100% - 60px);
+        padding: 0 30px;
+    }
+
+    .about-us .container > p{
+        top:0;
+        margin: 40px 0;
+    }
+
+    .people > div >p{
+        height: 40px;
+    }
+
+    .get-a-quote .wrapper{
+        width: calc(100% - 60px);
+    }
+
+    .get-a-quote{
+        height: auto;
+    }
+
+    .get-a-quote h2 + p{
+        top: 0;
+        margin: 10px 0;
+    }
+
+    .get-a-quote .grid-for-form-and-aside{
+        grid-template: 3fr 2fr / 1fr;
+    }
+
+    footer span{
+        display: none;
+    }
+
+    footer .social-media{
+        margin: auto;
+    }
+}
+
+@media (max-width: 374px){
+    .services .block{
+        height: 100%;
+        width: 100%;
+        grid-template: 1fr 3fr/ 1fr 3fr;
+    }
+
+    .portfolio li{
+        margin-right: 1px;
+    }
 }
